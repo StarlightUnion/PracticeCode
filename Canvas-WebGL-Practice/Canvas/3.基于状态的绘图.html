@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>基于状态的绘图</title>
+</head>
+<body>
+    <div id="container">
+        <canvas id="canvasElement" width="600" height="600">
+            <!-- IE9以上浏览器才支持 -->
+            Canvas not supported
+            您的浏览器不支持canvas，请升级浏览器
+        </canvas>
+    </div>
+
+    <script>
+        (function () {
+            let canvas = document.querySelector('#canvasElement');
+            let ctx = canvas.getContext('2d');
+
+            canvas.width = 600;
+            canvas.height = 600;
+            // canvas.style.border = '1px solid #000';
+
+            // 第一条线
+            ctx.strokeStyle = 'red';
+            ctx.lineWidth = 20;
+
+            // ctx.beginPath();// 开始时没有必要
+            ctx.moveTo(100, 100);
+            ctx.lineTo(300, 100);
+            ctx.stroke();
+
+            // 第二条线
+            ctx.beginPath();// 开始一个新路径，新状态。新状态可以继承之前的样式，但是当前状态设置的样式只能作用于当前的状态
+            ctx.strokeStyle = 'green';
+            ctx.moveTo(100, 200);
+            ctx.lineTo(300, 200);
+            ctx.stroke();
+
+            // 第三条线
+            ctx.beginPath();
+            ctx.strokeStyle = 'purple';
+            ctx.moveTo(100, 300);
+            ctx.lineTo(300, 300);
+            ctx.stroke();
+        }());
+    </script>
+</body>
+</html>

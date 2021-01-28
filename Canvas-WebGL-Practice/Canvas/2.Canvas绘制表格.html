@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Canvas绘制表格</title>
+</head>
+<body>
+    <div id="container">
+        <canvas id="canvasElement" width="600" height="600">
+            <!-- IE9以上浏览器才支持 -->
+            Canvas not supported
+            您的浏览器不支持canvas，请升级浏览器
+        </canvas>
+    </div>
+
+    <script>
+        (function () {
+            let canvas = document.querySelector('#canvasElement');
+            let ctx = canvas.getContext('2d');
+
+            canvas.width = 600;
+            canvas.height = 600;
+            // canvas.style.border = '1px solid #000';
+
+            // 绘制表格
+            let h = 10, w = 10;
+            for (let i = 0; i <= canvas.height / h; i++) {
+                ctx.moveTo(0, i * h);// 如果不设置moveTo，画笔没有位置
+                ctx.lineTo(canvas.width, i * h);
+
+                ctx.moveTo(i * w, 0);
+                ctx.lineTo(i * w, canvas.height);
+            }
+            ctx.stroke();
+        }());
+    </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>绘制序列帧</title>
+</head>
+<body>
+    <div id="container">
+        <canvas id="canvasElement" width="600" height="600">
+            <!-- IE9以上浏览器才支持 -->
+            Canvas not supported
+            您的浏览器不支持canvas，请升级浏览器
+        </canvas>
+    </div>
+    <button id="left">←</button>
+    <button id="right">→</button>
+    <button id="top">↑</button>
+    <button id="bottom">↓</button>
+
+    <script>
+        (function () {
+            let canvas = document.querySelector('#canvasElement');
+            let ctx = canvas.getContext('2d');
+
+            canvas.width = 600;
+            canvas.height = 600;
+            // canvas.style.border = '1px solid #000';
+
+            let dirIndex = 0;
+            let img = new Image();
+            img.src = '../images/gameImgs/DMMban.png';
+            img.onload = () => {
+                let index = 0;
+                setInterval(() => {
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);// 1.清除之前的内容 建议使用
+                    // canvas.width = canvas.width;// 2.重新设置画布的宽高，但是会全部清除
+                    ctx.drawImage(img, index * 40, dirIndex * 65, 40, 65, 200, 200, 80, 65 * 2);
+                    index++;
+                    index %= 4;
+                }, 100);
+            };
+
+            let left = document.getElementById('left');
+            left.onclick = () => {dirIndex = 1;};
+
+            let right = document.getElementById('right');
+            right.onclick = () => {dirIndex = 2;}
+
+            let top = document.getElementById('top');
+            top.onclick = () => {dirIndex = 3;}
+
+            let bottom = document.getElementById('bottom');
+            bottom.onclick = () => {dirIndex = 0;}
+        })();
+    </script>
+</body>
+</html>

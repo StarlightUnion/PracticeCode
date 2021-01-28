@@ -1,0 +1,147 @@
+/**index.wxss**/
+.container {}
+
+.selection {
+  border-bottom: 10px solid #ddd;
+}
+
+.page-section {
+  width: 100%;
+  /* margin-bottom: 60rpx; */
+}
+
+.swiper-item {
+  display: block;
+  width: 100%;
+  height: 300rpx;
+}
+
+.selection {
+  width: 100%;
+}
+
+.header {
+  padding-left: 10px;
+  border-left: 2px solid limegreen;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+}
+
+text {
+  font-size: 16px;
+}
+
+.text-all {
+  color: green;
+  font-size: 14px;
+  margin-right: 10px;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.content-item {
+  position: relative;
+  height: 300rpx;
+  width: 45%;
+  background-color: skyblue;
+  margin: 6px;
+}
+
+.content-item image {
+  width: 100%;
+  height: 100%;
+}
+
+.content-item .content-item-text {
+  position: absolute;
+  bottom: 0px;
+  color: white;
+  font-size: 10px;
+  background: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+  height: 125rpx;
+  width: 98%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1%;
+}
+
+.content-item .content-item-text  text {
+  height: 14px;
+  font-size: 12px;
+  line-height: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: wrap;
+}
+
+.list-item {
+  height: 600rpx;
+  width: 100%;
+  margin-bottom: 10rpx;
+}
+
+.list-item-images {
+  height: 400rpx;
+  width: 100%;
+  position: relative;
+}
+
+.list-item-images .pic {
+  height: 100%;
+  width: 100%;
+}
+
+.list-item-text {
+  height: 200rpx;
+  width: 96%;
+  /* background-color: rebeccapurple; */
+  margin-top: 50rpx;
+  padding: 0 2%;
+
+}
+
+.avatar {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  position: absolute;
+  bottom: -50rpx;
+  right: 50rpx;
+}
+
+.list-item-text-content {
+  font-size: 10px;
+  color: #999;
+}
+
+.list-item-text-content text {
+  font-size: 24rpx;
+  height: 120rpx;
+  line-height: 40rpx;
+
+  display: -webkit-box;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.list-item-text-title text {
+  font-size: 28rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

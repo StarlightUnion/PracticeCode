@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>绘制坐标系</title>
+</head>
+<body>
+    <div id="container">
+        <canvas id="canvasElement" width="600" height="600">
+            <!-- IE9以上浏览器才支持 -->
+            Canvas not supported
+            您的浏览器不支持canvas，请升级浏览器
+        </canvas>
+    </div>
+
+    <script>
+        (function () {
+            let canvas = document.querySelector('#canvasElement');
+            let ctx = canvas.getContext('2d');
+
+            canvas.width = 600;
+            canvas.height = 600;
+            // canvas.style.border = '1px solid #000';
+
+            let X0 = 100,
+                Y0 = 400,
+                MAX_HEIGHT = 300,
+                ARROW_WIDTH = 10;
+
+            // 绘制X轴
+            ctx.beginPath();
+            ctx.strokeStyle = 'blue';
+            ctx.moveTo(X0, Y0);
+            ctx.lineTo(500, 400);
+            ctx.lineTo(500 - ARROW_WIDTH, 400 - ARROW_WIDTH);
+            ctx.moveTo(500, 400);
+            ctx.lineTo(500 - ARROW_WIDTH, 400 + ARROW_WIDTH);
+            ctx.stroke();
+
+            // 绘制Y轴
+            ctx.beginPath();
+            ctx.strokeStyle = 'purple';
+            ctx.moveTo(X0, Y0);
+            ctx.lineTo(100, 0);
+            ctx.lineTo(100 - ARROW_WIDTH, ARROW_WIDTH);
+            ctx.moveTo(100, 0);
+            ctx.lineTo(100 + ARROW_WIDTH, ARROW_WIDTH);
+            ctx.stroke();
+
+            // 绘制线段
+            let data = [.4, .5, .8, .7];
+            let POINT_WIDTH = 400 / (data.length + 1);
+            ctx.beginPath();
+            // ctx.moveTo(X0, Y0);
+            ctx.strokeStyle = 'skyblue';
+
+            for (let i = 0; i < data.length; i++) {
+                ctx.lineTo(X0 + (i + 1) * POINT_WIDTH, Y0 - data[i] * MAX_HEIGHT);
+            }
+            ctx.stroke();
+        })();
+    </script>
+</body>
+</html>

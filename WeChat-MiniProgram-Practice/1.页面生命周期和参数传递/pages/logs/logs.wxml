@@ -1,0 +1,5 @@
+<!--logs.wxml-->
+<view class="container log-list">
+  文章详情......
+  id为{{articleid}}
+</view>

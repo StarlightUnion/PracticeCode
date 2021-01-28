@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>对象版绘制矩形</title>
+
+    <script type="text/javascript" src="js/ItcastRect.js"></script>
+</head>
+<body>
+    <div id="container">
+        <canvas id="canvasElement" width="600" height="600">
+            <!-- IE9以上浏览器才支持 -->
+            Canvas not supported
+            您的浏览器不支持canvas，请升级浏览器
+        </canvas>
+    </div>
+
+    <script>
+        (function () {
+            let canvas = document.querySelector('#canvasElement');
+            let context = canvas.getContext('2d');
+
+            canvas.width = 600;
+            canvas.height = 600;
+            canvas.style.border = '1px solid #000';
+
+            let rect = new ItcastRect({
+                x: 100,
+                y: 100,
+                w: 100,
+                h: 100,
+                opaction: .6,
+                rotation: 30,
+                scaleX: 1.5,
+                scaleY: 1.5,
+                fillStyle: 'purple',
+                strokeStyle: 'red'
+            });
+            rect.render(context);
+        })();
+    </script>
+</body>
+</html>

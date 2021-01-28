@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>绘制图片</title>
+</head>
+<body>
+    <div id="container">
+        <canvas id="canvasElement" width="600" height="600">
+            <!-- IE9以上浏览器才支持 -->
+            Canvas not supported
+            您的浏览器不支持canvas，请升级浏览器
+        </canvas>
+    </div>
+
+    <script>
+        (function () {
+            /**
+            * @param {DOMObject} img 文本
+            * @param {number} sx 开始剪切x坐标 可选
+            * @param {number} sy 开始剪切y坐标 可选
+            * @param {number} swidth 剪切宽度 可选
+            * @param {number} sheight 剪切高度 可选
+            * @param {number} x 放置起始x坐标
+            * @param {number} y 放置起始y坐标
+            * @param {number} width 要使用的图像的宽度 可选
+            * @param {number} height 要使用的图像的高度 可选
+            */
+            // (1) ctx.drawImage(img, x, y) 在画布上定位图像
+            // (2) ctx.drawImage(img, x, y, width, height) 在画布上定位图像
+            // (3) ctx.drawImage(img, sx, sy, swidth, sheight, x, y, width, height) 在画布上定位被剪切的部分图像
+
+            let canvas = document.querySelector('#canvasElement');
+            let ctx = canvas.getContext('2d');
+
+            canvas.width = 600;
+            canvas.height = 600;
+            // canvas.style.border = '1px solid #000';
+
+            // 1.创建图片的DOM对象
+            let img = new Image();
+            img.src = '../images/shibainu.jpeg';
+
+            // 2.图片加载完成后，把图片绘制到canvas上
+            img.onload = () => {
+                let ow = img.width,
+                    oh = img.height;
+
+                // 绘制指定长宽比的图片
+                ctx.drawImage(img, 100, 100, 100, 100 * oh / ow);
+            }
+
+            // 绘制指定的裁切图片
+            let img2 = new Image();
+            img2.src = '../images/gameImgs/DMMban.png';
+            img2.onload = () => {
+                ctx.drawImage(img2, 40, 65, 40, 65, 300, 300, 40, 65);
+            }
+        })();
+    </script>
+</body>
+</html>

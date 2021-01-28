@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>对象版绘制动画</title>
+
+    <script type="text/javascript" src="js/Sprite.js"></script>
+</head>
+<body>
+    <div id="container">
+        <canvas id="canvasElement" width="600" height="600">
+            <!-- IE9以上浏览器才支持 -->
+            Canvas not supported
+            您的浏览器不支持canvas，请升级浏览器
+        </canvas>
+    </div>
+    <button id="left">←</button>
+    <button id="right">→</button>
+    <button id="up">↑</button>
+    <button id="down">↓</button>
+
+    <script>
+        (function () {
+            let canvas = document.querySelector('#canvasElement');
+            let ctx = canvas.getContext('2d');
+
+            canvas.width = 600;
+            canvas.height = 600;
+            // canvas.style.border = '1px solid #000';
+
+            let s = new Sprite({
+                x: 300,
+                y: 300,
+                width: 80,
+                height: 65 * 2,
+                fps: 4,
+                cutWidth: 40,
+                cutHeight: 65,
+                imgSrc: '../images/gameImgs/DMMban.png'
+            });
+            s.render(ctx);
+
+            let left = document.getElementById('left');
+            left.onclick = () => {s.changeDir('left')};
+
+            let right = document.getElementById('right');
+            right.onclick = () => {s.changeDir('right')}
+
+            let up = document.getElementById('up');
+            up.onclick = () => {s.changeDir('up')}
+
+            let down = document.getElementById('down');
+            down.onclick = () => {s.changeDir('down')}
+        })();
+    </script>
+</body>
+</html>

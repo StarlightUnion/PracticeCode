@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>其他绘制的API</title>
+</head>
+<body>
+    <div id="container">
+        <canvas id="canvasElement" width="600" height="600">
+            <!-- IE9以上浏览器才支持 -->
+            Canvas not supported
+            您的浏览器不支持canvas，请升级浏览器
+        </canvas>
+    </div>
+
+    <script>
+        (function () {
+            let canvas = document.querySelector('#canvasElement');
+            let context = canvas.getContext('2d');
+
+            canvas.width = 600;
+            canvas.height = 600;
+            // canvas.style.border = '1px solid #000';
+
+            context.fillStyle = 'rgba(255, 0, 0, .9)';
+            context.shadowColor= 'teal';
+            context.shadowBlur = 10;
+            context.shadowOffsetX = 10;
+            context.shadowOffsetY = 10;
+            context.fillRect(100, 100, 100, 100);
+
+
+            // 创建一个线性渐变
+            // let grd = context.createLinearGradient(0, 0, 170, 0);
+            // // 添加一个渐变颜色，第一个参数介于 0.0 到 1.0 之间的值，表示渐变中开始与结束之间的位置。
+            // grd.addColorStop(0, 'black');
+            // grd.addColorStop(.5, 'red');
+            // grd.addColorStop(1, 'white');
+            // context.fillStyle = grd;
+            // context.fillRect(0, 0, 300, 300);
+
+
+            // 创建一个圆形渐变
+            let rlg = context.createRadialGradient(300, 300, 10, 300, 300, 200);
+            rlg.addColorStop(0, 'teal');
+            rlg.addColorStop(.4, 'navy');
+            rlg.addColorStop(1, 'purple');
+            context.fillStyle = rlg;
+            context.fillRect(100, 100, 500, 500);
+        })();
+    </script>
+</body>
+</html>

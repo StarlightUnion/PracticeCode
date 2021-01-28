@@ -1,0 +1,28 @@
+<!--index.wxml-->
+<view class="container">
+  <!-- navigator方式同样不能和tabbar共用 -->
+  <navigator url="../logs/logs?id=100">
+    <view class="usermotto">
+      <text class="user-motto">文章一</text>
+    </view>
+  </navigator>
+
+  <!-- <navigator url="../logs/logs?id=100" redirect>
+    <view class="usermotto">
+      <text class="user-motto">文章一</text>
+    </view>
+  </navigator> -->
+
+  <!-- <view bindtap="click" class="usermotto">
+    <text class="user-motto">文章一</text>
+  </view> -->
+  <view class="usermotto">
+    <text class="user-motto">文章二</text>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">文章三</text>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">文章四</text>
+  </view>
+</view>

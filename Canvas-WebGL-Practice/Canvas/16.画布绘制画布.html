@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>画布绘制画布</title>
+
+    <script type="text/javascript" src="js/ItcastRect.js"></script>
+</head>
+
+<body>
+    <div id="container">
+        <canvas id="canvasElement" width="600" height="600">
+            <!-- IE9以上浏览器才支持 -->
+            Canvas not supported
+            您的浏览器不支持canvas，请升级浏览器
+        </canvas>
+        <canvas id="canvasElement2" width="600" height="600">
+            <!-- IE9以上浏览器才支持 -->
+            Canvas not supported
+            您的浏览器不支持canvas，请升级浏览器
+        </canvas>
+    </div>
+
+    <img src="" id="img" />
+
+    <script>
+        (function () {
+            let canvas1 = document.querySelector('#canvasElement');
+            let canvas2 = document.querySelector('#canvasElement2');
+            let context1 = canvas1.getContext('2d');
+            let context2 = canvas2.getContext('2d');
+
+            canvas1.width = 600;
+            canvas1.height = 600;
+            canvas1.style.border = '1px solid #000';
+
+            canvas2.width = 600;
+            canvas2.height = 600;
+            canvas2.style.border = '1px solid #000';
+
+            let rect = new ItcastRect({
+                x: 100,
+                y: 100,
+                w: 100,
+                h: 100,
+                opaction: .6,
+                rotation: 60,
+                scaleX: 1,
+                scaleY: 1,
+                fillStyle: 'purple',
+                strokeStyle: 'red'
+            });
+            rect.render(context1);
+
+            // 把canvas转成一个图片
+            // console.log(canvas.toDataURL('image/jpeg', .6));
+
+            setInterval(function () {
+                context1.clearRect(0, 0, canvas1.width, canvas1.height);
+                rect.x += 10;
+                rect.render(context1);
+
+                // 把canvas输出到一张图上去
+                // let img = document.getElementById('img');
+                // img.src = canvas1.toDataURL('image/png', .5);
+
+                // 把一个画布渲染到另外一个画布上
+                context2.drawImage(canvas1, 0, 0);
+            }, 100);
+        })();
+    </script>
+</body>
+
+</html>

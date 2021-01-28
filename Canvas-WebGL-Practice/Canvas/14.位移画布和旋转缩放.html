@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>位移画布和旋转缩放</title>
+</head>
+<body>
+    <div id="container">
+        <canvas id="canvasElement" width="600" height="600">
+            <!-- IE9以上浏览器才支持 -->
+            Canvas not supported
+            您的浏览器不支持canvas，请升级浏览器
+        </canvas>
+    </div>
+
+    <script>
+        (function () {
+            let canvas = document.querySelector('#canvasElement');
+            let context = canvas.getContext('2d');
+
+            canvas.width = 600;
+            canvas.height = 600;
+            // canvas.style.border = '1px solid #000';
+
+            context.fillStyle = 'red';
+            context.fillRect(10, 10, 100, 100);
+
+            // 保存当前上下文
+            context.save();
+
+            // 把当前画布移动到 (200, 200) 位置
+            context.translate(200, 200);
+            context.rotate(30 * Math.PI / 180);// 旋转
+            context.scale(2, 2);// 缩放 X 方向和 Y 方向
+            context.globalAlpha = .3;// 透明度
+
+            context.moveTo(0, 0);
+            context.lineTo(400, 0);
+            context.moveTo(0, 0);
+            context.lineTo(0, 400);
+            context.stroke();
+            context.fillRect(10, 10, 40, 40);
+
+            // 释放
+            context.restore();
+            context.fillRect(400, 400, 100, 100);
+        })();
+    </script>
+</body>
+</html>

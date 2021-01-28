@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>绘制矩形</title>
+</head>
+<body>
+    <div id="container">
+        <canvas id="canvasElement" width="600" height="600">
+            <!-- IE9以上浏览器才支持 -->
+            Canvas not supported
+            您的浏览器不支持canvas，请升级浏览器
+        </canvas>
+    </div>
+
+    <script>
+        (function () {
+            let canvas = document.querySelector('#canvasElement');
+            let ctx = canvas.getContext('2d');
+
+            canvas.width = 600;
+            canvas.height = 600;
+            canvas.style.border = '1px solid #000';
+
+            // ctx.rect(x, y, w, h);// 横纵坐标 + 宽高
+            ctx.rect(100, 100, 100, 50);
+            ctx.stroke();
+
+            ctx.strokeRect(100, 200, 100, 50);// 快速创建描边矩形
+
+            ctx.fillRect(100, 300, 40, 40);// 快速创建填充矩形
+            // 1.填充 “非零环绕规则”
+            // 2.ctx.clearRect(x, y, width, height) 清除某个矩形内的绘制内容，相当于橡皮擦
+        })();
+    </script>
+</body>
+</html>

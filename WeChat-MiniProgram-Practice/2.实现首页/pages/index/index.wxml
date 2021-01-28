@@ -1,0 +1,66 @@
+<view class="container">
+  <view class="page-section swiper">
+    <swiper indicator-dots="{{indicatorDots}}"
+      autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+      <block wx:for="{{background}}" wx:key="*this">
+        <swiper-item>
+          <image class="swiper-item" src="{{item}}" mode="aspectFill"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+
+  <view class="selection">
+    <view class="header">
+      <text>精品推荐</text>
+      <text class="text-all">全部精品</text>
+    </view>
+    <view class="content">
+      <view class="content-item">
+        <image src="https://inews.gtimg.com/newsapp_ls/0/10954314972_870492/0" mode="aspectFill"></image>
+        <view class="content-item-text">
+          <text>无惧特朗普威胁，德国三大电信公司之一选择华为设备建立5G网络</text>
+        </view>
+      </view>
+      <view class="content-item">
+        <image src="https://inews.gtimg.com/newsapp_ls/0/10951814248_870492/0" mode="aspectFill"></image>
+        <view class="content-item-text">
+          <text>微信搜索升级为“微信搜一搜” 微信公开课PRO将解读产品能力</text>
+        </view>
+      </view>
+      <view class="content-item">
+        <image src="https://inews.gtimg.com/newsapp_ls/0/10954661765_870492/0" mode="aspectFill"></image>
+        <view class="content-item-text">
+          <text>最新“世界品牌500强”：谷歌、亚马逊、微软居前三 40个中国品牌入选</text>
+        </view>
+      </view>
+      <view class="content-item">
+        <image src="https://inews.gtimg.com/newsapp_ls/0/10954664593_294195/0" mode="aspectFill"></image>
+        <view class="content-item-text">
+          <text>拼多多“新品牌计划”出年报 从扶持个体转向激活产业带</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="selection">
+    <view class="header">
+      <text>热门评测</text>
+      <text class="text-all">全部评测</text>
+    </view>
+    <view class="list-item" wx:for="{{listItems}}" wx:key="{{index}}">
+      <view class="list-item-images">
+        <image class="pic" src="{{item.image}}" mode="aspectFill"></image>
+        <image class="avatar" src="https://mat1.gtimg.com/v/comment/images/avatar_default.9d95c455.jpg" mode="aspectFill"></image>
+      </view>
+      <view class="list-item-text">
+        <view class="list-item-text-title">
+          <text>{{item.title}}</text>
+        </view>
+        <view class="list-item-text-content">
+          <text>{{item.text}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

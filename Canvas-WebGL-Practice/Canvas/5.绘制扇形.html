@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>绘制扇形</title>
+</head>
+<body>
+    <div id="container">
+        <canvas id="canvasElement" width="600" height="600">
+            <!-- IE9以上浏览器才支持 -->
+            Canvas not supported
+            您的浏览器不支持canvas，请升级浏览器
+        </canvas>
+    </div>
+
+    <script>
+        (function () {
+            let canvas = document.querySelector('#canvasElement');
+            let ctx = canvas.getContext('2d');
+
+            canvas.width = 600;
+            canvas.height = 600;
+            // canvas.style.border = '1px solid #000';
+
+            /**
+            * @param {number} x
+            * @param {number} y
+            * @param {number} r
+            * @param {radian} sAngle
+            * @param {radian} eAngle
+            * @param {boolean} counterclockwise
+            */
+            // ctx.arc(x, y, r, sAngle, eAngle, counterclockwise) 圆心坐标 半径大小 开始/结束角度 时针
+            // 开始/结束角度是弧度制 Math.PI
+            ctx.moveTo(100, 100);
+            ctx.arc(100, 100, 50, 0, Math.PI / 6, true);
+            ctx.closePath();
+            ctx.fill();
+            ctx.stroke();
+
+            // ctx.beginPath();
+            // ctx.fillStyle = 'red';
+            // ctx.moveTo(100, 200);
+            // ctx.arc(100, 200, 50, - Math.PI / 2, - Math.PI / 6);
+            // ctx.fill();
+
+            let data = [{
+                value: .2,
+                color: 'red',
+                title: '应届'
+            }, {
+                value: .3,
+                color: 'blue',
+                title: '社招'
+            }, {
+                value: .4,
+                color: 'green',
+                title: '推荐'
+            }, {
+                value: .1,
+                color: '#ccc',
+                title: '公开课'
+            }];
+
+            let tempAngle = -90;
+            let x = 100, y = 200, radius = 50;
+            for (let i = 0; i < data.length; i++) {
+                let angle = data[i].value * 360;
+                let startAngle = tempAngle * Math.PI / 180;
+                let endAngle = (tempAngle + angle) * Math.PI / 180;
+
+                ctx.beginPath();
+                ctx.moveTo(x, y);
+                ctx.fillStyle = data[i].color;
+                ctx.arc(x, y, radius, startAngle, endAngle);
+                ctx.fill();
+
+                tempAngle += angle;
+            }
+
+        })();
+    </script>
+</body>
+</html>

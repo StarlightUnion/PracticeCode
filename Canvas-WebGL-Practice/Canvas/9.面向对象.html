@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>面向对象</title>
+</head>
+<body>
+    <div id="container">
+        <canvas id="canvasElement" width="600" height="600">
+            <!-- IE9以上浏览器才支持 -->
+            Canvas not supported
+            您的浏览器不支持canvas，请升级浏览器
+        </canvas>
+    </div>
+
+    <script>
+        // new 操作符原理：
+        // 1.创建一个空对象
+        // 2.把this指向到这个空对象
+        // 3.把空对象的 内部原型 指向 构造函数的原型对象
+        // 4.当构造函数执行完毕后，如果没有return，将当前空对象返回
+        function Bird () {
+            this.age = 19;
+            this.show = function () {};
+
+            return {
+                demo: '123'
+            }
+        }
+
+        let t = new Bird();
+        console.log(t.demo);
+
+
+        // 创建对象 把函数放入原型
+        // function Cat () {
+        //     this.age = 10;
+        // }
+
+        // Cat.prototype.show = function () {
+        //     console.log(this.age);
+        // }
+
+        // let cat = new Cat();
+        // let cat1 = new Cat();
+
+        // cat.age = 20;
+        // cat1.age = 23;
+
+        // cat.show();// 20
+        // cat1.show();// 23
+
+
+        // 参数改造
+        function Cat (option) {
+            // this.age = option.age;
+            // this.x = option.x;
+            this._init(option);
+        }
+
+        Cat.prototype = {
+            _init: function (option) {
+                this.age = option.age || '';
+            },
+            show: function () {
+                console.log(this.age);
+            }
+        }
+
+        let cat = new Cat({age: 20});
+        cat.show();
+    </script>
+</body>
+</html>
