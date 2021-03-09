@@ -2,10 +2,10 @@
  * @Descripttion: 03_types.ts
  * @Author: wxc
  * @Date: 2021-03-08 23:17:49
- * @LastEditTime: 2021-03-08 23:34:33
+ * @LastEditTime: 2021-03-09 22:46:57
  */
 
-// 字面量
+// ! 字面量
 let a: 10;
 // a = 11;// 错误
 
@@ -20,14 +20,14 @@ c = true;
 c = "hello";
 
 
-// any 表示任意类型 等于对该变量关闭TS类型监测
+// ! any 表示任意类型 等于对该变量关闭TS类型监测
 let d: any;// 等于 let d;
 d = 10;
 d = "hello";
 d = true;
 
 
-// unknown 表示位置类型的值 实际上是类型安全的any，不能直接赋值给其它类型的变量
+// ! unknown 表示位置类型的值 实际上是类型安全的any，不能直接赋值给其它类型的变量
 let e: unknown;
 e = 10;
 e = "hello";
@@ -51,12 +51,12 @@ function fn(): boolean {
 }
 
 
-// void 用来表示空
+// ! void 用来表示空
 function fn1(): void {// void表示没有返回值
 }
 
 
-// never 表示永远不会返回结果
+// ! never 表示永远不会返回结果
 function fn2(): never {
   throw new Error("错误");
 }
