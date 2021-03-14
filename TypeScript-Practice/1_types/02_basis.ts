@@ -1,8 +1,8 @@
 /*
- * @Descripttion: 02_basis.ts
+ * @Description: 02_basis.ts
  * @Author: wxc
  * @Date: 2021-03-08 23:01:08
- * @LastEditTime: 2021-03-08 23:07:42
+ * @LastEditTime: 2021-03-14 20:36:24
  */
 
 let a: number;// 指定a的类型为number且不能修改

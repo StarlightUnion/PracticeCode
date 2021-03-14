@@ -1,8 +1,8 @@
 /*
- * @Descripttion: index.ts
+ * @Description: index.ts
  * @Author: wxc
  * @Date: 2021-03-12 23:26:13
- * @LastEditTime: 2021-03-13 22:48:34
+ * @LastEditTime: 2021-03-14 20:36:00
  */
 import { module } from "./module";
 

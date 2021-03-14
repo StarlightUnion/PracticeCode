@@ -1,5 +1,5 @@
 /*
- * @Descripttion: 03_types.ts
+ * @Description: 03_types.ts
  * @Author: wxc
  * @Date: 2021-03-08 23:17:49
  * @LastEditTime: 2021-03-09 22:46:57

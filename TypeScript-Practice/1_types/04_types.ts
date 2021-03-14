@@ -1,8 +1,8 @@
 /*
- * @Descripttion: 04_types.ts
+ * @Description: 04_types.ts
  * @Author: wxc
  * @Date: 2021-03-08 23:35:35
- * @LastEditTime: 2021-03-09 23:03:41
+ * @LastEditTime: 2021-03-14 20:36:12
  */
 
 // ! object 表示一个js对象
