@@ -1,7 +1,5 @@
-import Food from "./components/food";
+import GameControl from "./components/gameControl";
 import "./style/index.less";
 
 
-const food = new Food();
-console.log(food.X, food.Y);
-
+new GameControl();
