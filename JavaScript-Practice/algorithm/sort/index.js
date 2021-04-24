@@ -18,6 +18,28 @@ function bubbleSort(datas) {
 
 
 // 选择排序
-function SelectionSort(datas) {
+function selectionSort(datas) {
+  for (let i = 0; i < datas.length; i++) {
+    let temp,
+      min = datas[i],
+      index = i;
+    for (let j = i + 1; j < datas.length; j++) {
+      if (datas[j] < min) {
+        min = datas[j];
+        index = j;
+      }
+    }
+
+    temp = datas[i];
+    datas[i] = datas[index];
+    datas[index] = temp;
+  }
+
+  return datas;
+}
+
+
+// 插入排序
+function insertionSort(datas) {
 
 }
