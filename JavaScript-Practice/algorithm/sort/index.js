@@ -1,4 +1,5 @@
-// 冒泡排序
+// 基本排序算法
+// 1.冒泡排序
 // 时间复杂度：O(n^2) 空间复杂度：O(1)
 function bubbleSort(datas) {
   let temp = 0;
@@ -17,7 +18,7 @@ function bubbleSort(datas) {
 }
 
 
-// 选择排序
+// 2.选择排序
 function selectionSort(datas) {
   for (let i = 0; i < datas.length; i++) {
     let temp,
@@ -39,7 +40,26 @@ function selectionSort(datas) {
 }
 
 
-// 插入排序
+// 3.插入排序
 function insertionSort(datas) {
+  for (let i = 0; i < datas.length; i++) {
+    let temp = datas[i];
+    let key = i - 1;
+
+    while (key >= 0 && datas[key] > temp) {
+      datas[key + 1] = datas[key];
+      key--;
+    }
+
+    datas[key + 1] = temp;
+  }
+
+  return datas;
+}
+
+
+// 高级排序算法
+// 4.希尔排序
+function shellSort(datas) {
 
 }
