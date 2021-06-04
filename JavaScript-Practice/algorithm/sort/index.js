@@ -61,5 +61,25 @@ function insertionSort(datas) {
 // 高级排序算法
 // 4.希尔排序
 function shellSort(datas) {
+  let increment = datas.length;
+  let i, temp; //暂存
 
+  do {
+    //设置增量
+    increment = Math.floor(increment / 3) + 1;
+    for (i = increment; i < datas.length; i++) {
+      if (datas[i] < datas[i - increment]) {
+        temp = datas[i];
+
+        let j;
+        for (j = i - increment; j >= 0 && temp < datas[j]; j -= increment) {
+          datas[j + increment] = datas[j];
+        }
+        datas[j + increment] = temp;
+      }
+    }
+  }
+  while (increment > 1)
+
+  return datas;
 }
