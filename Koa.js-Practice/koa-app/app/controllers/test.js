@@ -2,7 +2,8 @@
  * test
  */
 const list = async ctx => {
-  ctx.body = 'test';
+  const { name, age } = ctx.request.query;
+  ctx.body = name + age;
 };
 
 module.exports = {
